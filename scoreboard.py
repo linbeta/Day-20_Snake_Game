@@ -17,9 +17,12 @@ class Scoreboard(Turtle):
         self.eat_food()
 
     def game_over(self):
-        self.goto(0,0)
+        self.clear()
+        self.goto(0, 0)
         self.color("Orange")
         self.write(f"GAME OVER", False, align=TEXT_ALIGNMENT, font=GAME_OVER_FONT)
+        self.goto(0, -30)
+        self.write(f"Your score: {self.score - 1}", align=TEXT_ALIGNMENT, font=FONT)
 
     def eat_food(self):
         self.clear()
