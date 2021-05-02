@@ -37,14 +37,17 @@ while game_is_on:
 
     # Detect collision with wall.
     if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        game_is_on = False
+        scoreboard.reset_score()
+        snake.reset()
 
     # Detect collision with the tail.
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            game_is_on = False
+            scoreboard.reset_score()
+            snake.reset()
 
-scoreboard.game_over()
+
+
 # TODO: ask user play again? and track the highest score.
 
 screen.exitonclick()
